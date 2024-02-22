@@ -1,0 +1,77 @@
+jwt:
+  secret-key: abcdefghijklmnopqrstuvwxyz0123456789
+  token:
+    expired-time-ms: 1800000
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.0.202:3306/backtest
+    username: gms1
+    password: qwer1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dlaxodn9999@gmail.com
+    password: gchobjywpeiopcvb
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+cloud:
+  aws:
+    s3:
+      bucket: gmsprojectbucket
+    credentials:
+      access-key: AKIAVDXMUFGEBZ7DCI5P
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+
+message:
+  set:
+    from: dlaxodn9999@gmail.com
+    text: http://localhost:8080/user/confirm?email=
+    subject1: campingOnTop
+    subject2: email
+    subject3: 인증
+
+portone:
+  imp_key: 5405754030648027
+  imp_secret: wNMkyYkHtfWsiyQ1A50kKzH3tHNUFUzKYA06g1sdgqBrXjca3y8HegybkzUpIDpPKJMJ6Obk86UdGMrC
+
+opentracing:
+  jaeger:
+    service-name: test-svc
+    udp-sender:
+      host: 192.168.0.200
+      port: 6831
